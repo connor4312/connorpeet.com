@@ -1,0 +1,24 @@
+{
+  "name": "protobill",
+  "version": "0.0.0",
+  "description": "Protobill Open Source Billing Solution",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "latest",
+    "twitter-bootstrap-3.0.0": "latest",
+    "font-awesome": "git://github.com/FortAwesome/Font-Awesome.git",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-coffee": "latest",
+    "grunt-contrib-clean": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/connor4312/connorpeet.com.git"
+  },
+  "author": "Connor Peet",
+  "license": "Proprietary",
+  "bugs": {
+    "url": "https://github.com/connor4312/connorpeet.com/issues"
+  }
+}
