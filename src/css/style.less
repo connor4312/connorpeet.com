@@ -1,0 +1,44 @@
+@import "../../node_modules/twitter-bootstrap-3.0.0/less/variables.less";
+@import "../../node_modules/twitter-bootstrap-3.0.0/less/mixins.less";
+
+@import "../../node_modules/twitter-bootstrap-3.0.0/less/utilities.less";
+@import "../../node_modules/twitter-bootstrap-3.0.0/less/normalize.less";
+
+@import "../../node_modules/twitter-bootstrap-3.0.0/less/grid.less";
+
+#intro {
+	position: relative;
+
+	.design, .develop, .design > div {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		font-weight: bold;
+	}
+
+	.develop {
+		background: url('../img/introbg-st2.jpg');
+		top: 0px;
+		left: 0px;
+	}
+
+	.design {
+		> div {
+			background: url('../img/introbg-ps.jpg');	
+		}
+
+		top: 0px;
+		right: -33.4%;
+		width: 2500px;
+	}
+}
+
+.rotshield {
+	.rotate(60deg);
+	overflow: hidden;
+	position: relative;
+	
+	> div {
+		.rotate(-60deg);
+	}
+}
