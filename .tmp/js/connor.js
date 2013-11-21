@@ -1,11 +1,12 @@
 (function() {
   $(document).ready(function() {
-    var $heightmatches, $introDesign, $introDesignparent, controller, introStuff, updateHeight;
+    var $heightmatches, $introDesign, $introDesignparent, controller, introStuff, updateHeight, windowHeight, windowWidth;
     $heightmatches = $('[data-match-height]');
     $introDesign = $('#intro .design');
     $introDesignparent = $introDesign.parent();
+    windowHeight = 0;
+    windowWidth = 0;
     (updateHeight = function() {
-      var windowHeight, windowWidth;
       windowHeight = $(window).height();
       windowWidth = $(window).width();
       return $heightmatches.each(function() {
@@ -19,27 +20,36 @@
       getLength = function() {
         return $introDesign.height() / Math.cos(Math.PI / 6);
       };
-      setLength = function(val, left) {
-        var h, r;
-        if (left == null) {
-          left = 0;
+      setLength = function(val, right) {
+        var h;
+        if (right == null) {
+          right = 0;
         }
         h = Math.cos(Math.PI / 6) * val;
-        r = Math.tan(Math.PI / 6) * 700;
         $introDesign.css({
           height: h,
-          right: r,
           top: 0
         });
         return $introDesign.css('top', (-1 * $('> div', $introDesign).offset().top) + 'px');
       };
-      return setLength($(window).width() * 0.5);
+      return setLength($(window).width());
     })();
     $(window).resize(_.throttle(updateHeight, 20));
-    return controller = $.superscrollorama({
+    controller = $.superscrollorama({
       triggerAtCenter: false,
-      playoutAnimations: true
+      playoutAnimations: true,
+      reverse: true
     });
+    return controller.addTween('#intro', TweenMax.fromTo($introDesign, 1, {
+      css: {
+        right: -(windowWidth * 2 / Math.sqrt(3))
+      },
+      immediateRender: true
+    }, {
+      css: {
+        right: -(windowWidth * 2)
+      }
+    }), windowHeight, 0);
   });
 
 }).call(this);

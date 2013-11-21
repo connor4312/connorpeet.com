@@ -5,6 +5,9 @@ $(document).ready ->
 
 	$introDesignparent = $introDesign.parent()
 
+	windowHeight = 0;
+	windowWidth = 0;
+
 	do updateHeight = ->
 		windowHeight = $(window).height();
 		windowWidth = $(window).width();
@@ -22,11 +25,19 @@ $(document).ready ->
 				top: 0
 			$introDesign.css 'top', (-1 * $('> div', $introDesign).offset().top) + 'px'
 
-		setLength $(window).width() * 0.5
+		setLength $(window).width()
 
 	$(window).resize _.throttle(updateHeight, 20)
 
 	controller = $.superscrollorama {
 		triggerAtCenter: false
 		playoutAnimations: true
+		reverse: true
 	}
+
+	controller.addTween(
+		'#intro',
+		TweenMax.fromTo($introDesign, 1, {css:{right: -(windowWidth * 2/Math.sqrt(3)) }, immediateRender:true}, {css:{right: -(windowWidth *2)}}),
+		windowHeight,
+		0
+	)

@@ -1,7 +1,7 @@
 {
-  "name": "protobill",
+  "name": "connorpeet-com",
   "version": "0.0.0",
-  "description": "Protobill Open Source Billing Solution",
+  "description": "Connor Peet personal site",
   "main": "Gruntfile.js",
   "dependencies": {
     "grunt": "latest",
