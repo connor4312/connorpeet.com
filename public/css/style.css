@@ -862,6 +862,9 @@ table {
   -webkit-transform: rotate(60deg);
   -ms-transform: rotate(60deg);
   transform: rotate(60deg);
+  -webkit-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
   overflow: hidden;
   position: relative;
 }

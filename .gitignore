@@ -37,7 +37,7 @@ ehthumbs.db
 Thumbs.db
 
 
-/node_modules
-/.tmp
-/public/css
-/public/js
+node_modules
+.tmp
+public/css
+public/js
